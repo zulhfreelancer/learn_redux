@@ -6,7 +6,8 @@
 * A reducer takes in current state, process it and return a new state
 */
 
-function posts(action, state = []) {
+// state MUST be the first argument and action always the second argument
+function posts(state = [], action) {
   console.log(action, state);
   return state;
 }
