@@ -8,6 +8,8 @@ const Main = React.createClass({
         <h1>
           <Link to="/">ReduxGram</Link>
         </h1>
+
+        {/* pass all props to PhotoGrid component */}
         {React.cloneElement(this.props.children, this.props)}
       </div>
     )
