@@ -13,6 +13,14 @@ const Comments = React.createClass({
     )
   },
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const {postId} = this.props.params;
+    const author = this.refs.author.value;
+    const comment = this.refs.comment.value;
+    this.props.addComment(postId, author, comment);
+  },
+
   render() {
     const {postComments} = this.props;
 
@@ -20,7 +28,7 @@ const Comments = React.createClass({
       <div className="comments">
         {postComments.map(this.renderComment)}
 
-        <form ref="commentForm" className="comment-form">
+        <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
           <input type="text" ref="author" placeholder="Author" />
           <input type="text" ref="comment" placeholder="Comment" />
           <input type="submit" hidden /> {/* to make Enter key to work, we need input type submit */}
